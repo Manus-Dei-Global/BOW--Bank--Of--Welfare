@@ -1,0 +1,14 @@
+{
+  "methods": ["google", "apple", "x"],
+  "headline": "Sign in to Bank of Welfare",
+  "subtitle": "Use your authorized account to access your BOW portal or control room",
+  "style": {
+    "mode": "light",
+    "accentColor": "#97762e",
+    "backgroundColor": "#f4f0e6",
+    "panelColor": "#ffffff",
+    "textColor": "#171612",
+    "fontFamily": "Inter, system-ui, sans-serif",
+    "borderRadius": 14
+  }
+}
