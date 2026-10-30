@@ -1,0 +1,104 @@
+[
+  {
+    "name": "Public landing page explains BOW and protects private tools",
+    "sanity": true,
+    "viewport": "desktop",
+    "covers": [
+      "BOW logo displayed in header and hero",
+      "public mission and vision",
+      "how support works",
+      "welfare tiers",
+      "partner opportunities",
+      "NCC and Kagini Help Desk contacts",
+      "admin and management tools hidden from public navigation"
+    ],
+    "description": "Verifies a public visitor can understand BOW, find application and partner calls to action, and cannot reach internal tools through public navigation.",
+    "steps": [
+      "Open the BOW homepage",
+      "Confirm the BOW logo appears in the header and hero identity panel",
+      "Review the mission, vision, how it works, welfare tiers and Help Desk contact sections",
+      "Inspect the public navigation for internal management links"
+    ],
+    "expected": "The public page presents BOW information and clear application and partner calls to action; no admin, dashboard, tracker, upload, or Help Desk management link is shown."
+  },
+  {
+    "name": "Unauthenticated applicant submits a support application",
+    "viewport": "desktop",
+    "covers": [
+      "public applicant application",
+      "application validation",
+      "/api/public/apply response",
+      "application inbox creation",
+      "tracker intake"
+    ],
+    "description": "Verifies a new applicant can submit without signing in and receive a durable reference connected to the private review workflow.",
+    "steps": [
+      "Select Apply for Support",
+      "Enter a name, phone, address, Help Desk and reason",
+      "Submit the application"
+    ],
+    "expected": "A BOW application reference is shown and the submission is available in the private applicant inbox and tracker."
+  },
+  {
+    "name": "Administrator uses the private control room and tracker",
+    "viewport": "desktop",
+    "covers": [
+      "private control room route",
+      "administrator authentication",
+      "offline access refresh scope",
+      "admin session persistence",
+      "searchable tracker",
+      "authoritative workbook import",
+      "128 application records",
+      "128 verification records",
+      "active account promotion"
+    ],
+    "description": "Verifies the authorized administrator can enter through the private route, import the tracker and remain in the control room during refresh.",
+    "steps": [
+      "Open the private control room route with #control-room and sign in with the authorized administrator account",
+      "Open General Tracker",
+      "Select and import the General Registration Verification Tracker workbook",
+      "Search for a known applicant",
+      "Refresh the admin workspace"
+    ],
+    "expected": "Applications and Verification records remain searchable, accepted records with account IDs appear as active accounts, and the authorized administrator remains in the private control room."
+  },
+  {
+    "name": "Applicant and partner inbox responses persist",
+    "viewport": "desktop",
+    "covers": [
+      "applicant inbox",
+      "partner inbox",
+      "response box",
+      "response persistence",
+      "inbox status update"
+    ],
+    "description": "Verifies private staff can review public submissions and persist responses with their workflow status.",
+    "steps": [
+      "Open Applicant & Partner Inbox",
+      "Open a submission",
+      "Write a response and save it",
+      "Refresh the inbox"
+    ],
+    "expected": "The response remains attached to its submission and the record can be marked Responded."
+  },
+  {
+    "name": "Partner applies without signing in on mobile",
+    "viewport": "mobile",
+    "covers": [
+      "public partner application",
+      "/api/public/partner-apply response",
+      "partner inbox creation",
+      "required-field validation",
+      "mobile application flow"
+    ],
+    "description": "Verifies a partner can submit a complete expression of interest without authentication while incomplete submissions are rejected.",
+    "steps": [
+      "Open Partner opportunities",
+      "Leave partner name empty and submit",
+      "Enter partner name and contact",
+      "Submit the partnership application"
+    ],
+    "expected": "An incomplete submission is rejected; a complete partnership application is accepted and routed to the private partner inbox."
+  }
+]
