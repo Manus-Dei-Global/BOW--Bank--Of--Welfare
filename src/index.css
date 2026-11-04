@@ -148,12 +148,13 @@ body{background:#faf8f2;color:#292725}
 .contactSection{background:#e9eee4}
 .phoneLink,.whatsappLink{color:#4d8738}
 .qrCard{border-color:#e1d8c8}
-.footer{background:#171615;border-top:3px solid #5d9b43}
+.footer{background:linear-gradient(105deg,#fffdf7 0%,#fcf4e1 58%,#faedcf 100%);border-top:3px solid #5d9b43;color:#292725}
 .footerBrand{display:flex!important;align-items:center;gap:20px}
 .footerLogo{width:142px;height:142px;object-fit:contain;background:#000;border-radius:4px}
-.footerBrand p{color:#f1b348!important;font-size:12px!important}
-.footerContact a{color:#f6ad35}
-.footerContact button{color:#f3eee5}
+.footerBrand p{color:#315f2c!important;font-size:12px!important}
+.footerContact a{color:#315f2c}
+.footerContact button{color:#302b22}
+.footer>small{color:#625744}
 @media(max-width:800px){.nav{height:86px}.brandLogo{width:70px;height:70px}.navLinks{background:#1b1a18;border-color:rgba(246,167,44,.25)}.navLinks button{color:#f3eee5}}
 @media(max-width:520px){.brandLogo{width:62px;height:62px}.brandTagline strong{font-size:9px}.brandTagline small{font-size:9px}.footerLogo{width:118px;height:118px}}
 
