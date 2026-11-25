@@ -4,16 +4,20 @@ import { ArrowRight, CheckCircle2, HandHeart, Building2, Phone, MessageCircle, M
 const WHATSAPP_NUMBER = '2348086001110';
 
 const tiers = [
-  { name: 'Seedling', audience: 'Youth and young adults', description: 'A starting point for young people building stability and finding their feet.', color: '#2f7136' },
-  { name: 'Anchor', audience: 'Adults and working households', description: 'Steady support for adults carrying responsibilities and supporting families.', color: '#244d3a' },
-  { name: 'Harvest', audience: 'Families and households', description: 'A pathway for households seeking practical support and stronger foundations.', color: '#a17b27' },
-  { name: 'Elder', audience: 'Older adults', description: 'Care that honours dignity, wellbeing, companionship and the value of experience.', color: '#59406d' },
-  { name: 'Crisis Relief', audience: 'Urgent and temporary needs', description: 'A compassionate response when unexpected circumstances create immediate need.', color: '#9b4141' }
+  { name: 'Seedling', audience: 'Youth and young adults', description: 'A starting point for young people building stability and finding their feet.', color: '#2f7136', image: '11_education_support.jpg', alt: 'Education support' },
+  { name: 'Anchor', audience: 'Adults and working households', description: 'Steady support for adults carrying responsibilities and supporting families.', color: '#244d3a', image: '12_skills_and_empowerment.jpg', alt: 'Empowerment and skills' },
+  { name: 'Harvest', audience: 'Families and households', description: 'A pathway for households seeking practical support and stronger foundations.', color: '#a17b27', image: '13_family_care.jpg', alt: 'Family care' },
+  { name: 'Elder', audience: 'Older adults', description: 'Care that honours dignity, wellbeing, companionship and the value of experience.', color: '#59406d', image: '15_elderly_welfare.jpg', alt: 'A volunteer helping an older man' },
+  { name: 'Crisis Relief', audience: 'Urgent and temporary needs', description: 'A compassionate response when unexpected circumstances create immediate need.', color: '#9b4141', image: '16_crisis_relief.jpg', alt: 'Crisis relief volunteer' }
 ];
 
 function openWhatsApp(message: string) {
   const url = 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(message);
   window.open(url, '_blank', 'noopener,noreferrer');
+}
+
+function WelfareImage({ file, alt, className = '' }: { file: string; alt: string; className?: string }) {
+  return <img className={`welfareImage ${className}`} src={`${import.meta.env.BASE_URL}resources/welfare/${file}`} alt={alt} loading={className === 'heroPhoto' ? 'eager' : 'lazy'} decoding="async" />;
 }
 
 function App() {
@@ -96,7 +100,7 @@ function App() {
             <div className="heroFootnote">A dignity-first approach to relief, stability and sustainable impact.</div>
           </div>
           <div className="heroPanel">
-            <div className="orbit"><HandHeart size={58} strokeWidth={1.2} /></div>
+            <WelfareImage file="hero-portrait.png" alt="Woman looking up in warm sunlight" className="heroPhoto" />
             <span className="panelLabel">OUR COMMITMENT</span>
             <h2>Compassion with structure. Support with purpose.</h2>
             <div className="panelStats"><span><b>05</b><small>Welfare pathways</small></span><span><b>02</b><small>Help Desk locations</small></span><span><b>01</b><small>Shared purpose</small></span></div>
@@ -120,20 +124,34 @@ function App() {
 
         <section className="section foundation">
           <div className="sectionHeading"><span className="eyebrow">OUR FOUNDATION</span><h2>Guided by purpose. Grounded in service.</h2></div>
-          <div className="foundationGrid">
+          <div className="foundationLayout">
+            <WelfareImage file="05_mission_and_vision.jpg" alt="A smiling family" className="foundationPhoto" />
+            <div className="foundationGrid">
             <article><HandHeart /><h3>Our Mission</h3><p>To uplift individuals and communities through compassion, support and sustainable welfare initiatives.</p></article>
             <article><Building2 /><h3>Our Vision</h3><p>A world where every person has access to the resources, opportunities and support they need to thrive.</p></article>
             <article><CheckCircle2 /><h3>Our Values</h3><p>Compassion, Integrity, Accountability, Service Excellence and Impact Driven.</p></article>
+            </div>
           </div>
         </section>
 
         <section className="section tiersSection" id="tiers">
           <div className="sectionHeading"><span className="eyebrow">WELFARE PATHWAYS</span><h2>Five pathways. One commitment to dignity.</h2><p>Each pathway reflects a different stage or circumstance of life. Final eligibility and support are assessed by the BOW team.</p></div>
-          <div className="tierGrid">{tiers.map((tier) => <article className="tierCard" key={tier.name} style={{ borderTopColor: tier.color }}><span className="tierNumber">BOW / {tier.name.toUpperCase()}</span><h3>{tier.name}</h3><small>{tier.audience}</small><p>{tier.description}</p></article>)}</div>
+          <div className="tierGrid">{tiers.map((tier) => <article className="tierCard" key={tier.name} style={{ borderTopColor: tier.color }}><WelfareImage file={tier.image} alt={tier.alt} /><h3>{tier.name}</h3><small>{tier.audience}</small><p>{tier.description}</p></article>)}</div>
+        </section>
+
+        <section className="section supportPhotos">
+          <div className="sectionHeading"><h2>Practical support in the community</h2><p>Food assistance, health support and community outreach illustrate the kinds of needs BOW helps people address.</p></div>
+          <div className="supportPhotoGrid">
+            <WelfareImage file="09_food_support.jpg" alt="Food support" />
+            <WelfareImage file="10_healthcare_support.jpg" alt="Health support" />
+            <WelfareImage file="14_community_outreach.jpg" alt="Community outreach" />
+          </div>
         </section>
 
         <section className="section partnerSection" id="partners">
-          <div className="partnerCopy"><span className="eyebrow">PARTNER WITH BOW</span><h2>Bring your resources, skills and compassion into the circle.</h2><p>We welcome individuals, organisations, service providers and community-minded institutions interested in contributing goods, services, expertise, opportunities or other practical support.</p><ul><li>Donor and resource partners</li><li>Professional and service partners</li><li>Community and institutional partners</li></ul></div>
+          <div className="partnerCopy"><span className="eyebrow">PARTNER WITH BOW</span><h2>Bring your resources, skills and compassion into the circle.</h2><p>We welcome individuals, organisations, service providers and community-minded institutions interested in contributing goods, services, expertise, opportunities or other practical support.</p><ul><li>Donor and resource partners</li><li>Professional and service partners</li><li>Community and institutional partners</li></ul>
+            <WelfareImage file="19_partnership_and_volunteers.jpg" alt="BOW partnership and volunteering" />
+          </div>
           <form className="formCard" onSubmit={submitPartner}>
             <h3>Become a BOW Partner</h3>
             <label>Name / organisation<input required value={partner.name} onChange={(e) => setPartner({ ...partner, name: e.target.value })} placeholder="Your name or organisation" /></label>
@@ -146,7 +164,8 @@ function App() {
         </section>
 
         <section className="section applySection" id="apply">
-          <div className="applyIntro"><span className="eyebrow">APPLY FOR SUPPORT</span><h2>Tell us what support would make a difference.</h2><p>Complete the form and continue to WhatsApp. Your message will be prepared for the BOW Help Desk at the number below. You must press Send in WhatsApp to deliver it.</p><div className="helpDeskNote"><strong>Help Desk locations</strong><span>NCC • National Christian Centre, Abuja</span><span>Kagini • BOW Help Desk</span></div></div>
+          <div className="applyIntro"><span className="eyebrow">APPLY FOR SUPPORT</span><h2>Tell us what support would make a difference.</h2><p>Complete the form and continue to WhatsApp. Your message will be prepared for the BOW Help Desk at the number below. You must press Send in WhatsApp to deliver it.</p><div className="helpDeskNote"><strong>Help Desk locations</strong><span>NCC • National Christian Centre, Abuja</span><span>Kagini • BOW Help Desk</span></div>
+          </div>
           <form className="formCard applicationCard" onSubmit={submitApplication}>
             <h3>Support application</h3>
             <div className="formRow"><label>Full name<input required value={application.name} onChange={(e) => setApplication({ ...application, name: e.target.value })} placeholder="Your full name" /></label><label>Phone number<input required type="tel" value={application.phone} onChange={(e) => setApplication({ ...application, phone: e.target.value })} placeholder="Your phone number" /></label></div>
